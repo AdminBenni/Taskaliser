@@ -93,7 +93,7 @@ def check_updates():
     global t
     try:
         http = creds.authorize(Http())
-        result = str(drive_service.files().get_media(fileId="13w-GA2pbcUbtUiOxzN9loQwdwMLur5MC").execute(http=http), "utf-8")
+        result = str(drive_service.files().get_media(fileId="13w-GA2pbcUbtUiOxzN9loQwdwMLur5MC").execute(http=http), "ISO-8859-1")
         date = eval(result.split("\n")[1], {"datetime": datetime})
         if date < last_update:
             drive_service.files().update(
